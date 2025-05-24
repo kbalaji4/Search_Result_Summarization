@@ -1,0 +1,10 @@
+flask
+langchain
+langchain-openai
+langchain-community
+langchain-core
+langchain-nomic
+langchain-text-splitters
+googlesearch-python
+faiss-cpu
+openai
