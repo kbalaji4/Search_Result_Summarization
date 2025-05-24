@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Result Summarization</title>
+</head>
+<body>
+    <h1>Search Result Summarization by Keshav</h1>
+    <form method="POST" action="/">
+        <label for="query">Question:</label><br>
+        <input type="text" name="query" required><br>
+        <label for="num">Number of Search Queries:</label><br>
+        <input type="text" name="num" required>
+        <button type="submit">Submit</button>
+    </form>
+    <form method="POST" action="/reset">
+        <button type="submit">Reset</button>
+    </form>
+    {% if result %}
+        <h2>Results:</h2>
+        <ul>
+        {% for item in result %}
+            <li>{{ item }}</li>
+        {% endfor %}
+        </ul>
+        <h2>Follow Up Question:</h2>
+        <form method="POST" action="/follow-up">
+            <input type="text" name="query_2" required>
+            <button type="submit">Submit New Input</button>
+        </form>
+        
+        {% if new_input %}
+            <h2>New Input Received:</h2>
+            <p>{{ new_input }}</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
